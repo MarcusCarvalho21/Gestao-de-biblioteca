@@ -93,7 +93,7 @@ int main(){
 			scanf(" %d", &indice);
 			
 			if(livro[indice] == NULL){
-				printf("O livro nesse indece nao existe ou ja foi removido!");
+				printf("\nO livro nesse indece nao existe ou ja foi removido!");
 			}else{
 				livro[indice] = NULL;
 			}
@@ -101,36 +101,40 @@ int main(){
 			printf("Informe o indice do livro pra Emprestar: ");
 			scanf(" %d", &indice);
 			if(livro[indice] == NULL){
-				printf("O livro nesse indece nao existe!");
+				printf("\nO livro nesse indece nao existe!");
 			}else{
 				livro[indice]->situacao = 0;;
 			}			
 		}else if(operacao == 4){
-			printf("Informe o indice do livro pra Devolver: ");
+			printf("\nInforme o indice do livro pra Devolver: ");
 			scanf(" %d", &indice);
 		
 			if(livro[indice] == NULL){
-				printf("O livro nesse indece nao existe!");
+				printf("\nO livro nesse indece nao existe!");
 			}else{
 				livro[indice]->situacao = 1;
 			}		
 		}else if(operacao == 5){
 			for(i = 0; i < 100; i++){
 				if(livro[i] != NULL && livro[i]->situacao == 0){
-					printf("Livro: %s", livro[i]->titulo);
+					printf("\nLivro: %s Indice: %d \n", livro[i]->titulo, i);
 				}
 			}
 		}else if(operacao == 6){
 			for(i = 0; i < 100; i++){
 				if(livro[i] != NULL && livro[i]->situacao == 1){
-					printf("Livro: %s", livro[i]->titulo);
+					printf("\nLivro: %s Indice: %d \n", livro[i]->titulo, i);
 				}
 			}
 		}
 		else if(operacao == 7){
 			x = 1;
 			for(i = 0; i < 100; i++){
-				freeLivros(livro[i]);
+				if(livro[i] != NULL){
+				
+					freeLivros(livro[i]);
+				
+				}
 			}
 			free(livro);
 		}	
